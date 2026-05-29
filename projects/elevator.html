@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PLC Elevator Control — Nikki Bautista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F7F4EF; --ink: #1A1714; --ink-soft: #3D3830; --ink-muted: #7A7368;
+      --accent: #C8563A; --accent-light: #F0E0DA; --rule: #D9D3C9; --white: #FFFFFF;
+      --serif: 'Libre Baskerville', Georgia, serif; --sans: 'DM Sans', system-ui, sans-serif;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,244,239,0.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); padding: 0 clamp(1.5rem,5vw,4rem); height: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-name { font-family: var(--serif); font-size: 1rem; color: var(--ink); text-decoration: none; }
+    .nav-back { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.05em; color: var(--ink-muted); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .nav-back:hover { color: var(--accent); }
+    .page { padding-top: calc(56px + 4rem); padding-bottom: 6rem; max-width: 700px; margin: 0 auto; padding-left: clamp(1.5rem,5vw,3rem); padding-right: clamp(1.5rem,5vw,3rem); }
+    .project-eyebrow { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    h1 { font-family: var(--serif); font-size: clamp(1.9rem, 5vw, 2.8rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    .meta { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--rule); }
+    .meta-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.2rem; }
+    .meta-value { font-size: 0.9rem; color: var(--ink); }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 3rem; }
+    .project-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.3em 0.7em; background: var(--accent-light); color: var(--accent); border-radius: 2px; }
+    .prose h2 { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.01em; }
+    .prose p { color: var(--ink-soft); font-size: 1rem; margin-bottom: 1.25rem; line-height: 1.8; }
+    .prose ul { margin: 0 0 1.25rem 1.5rem; color: var(--ink-soft); }
+    .prose li { margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.7; }
+    .prose strong { color: var(--ink); font-weight: 500; }
+    .image-placeholder { background: var(--rule); border-radius: 2px; width: 100%; height: 280px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--ink-muted); margin: 2.5rem 0; letter-spacing: 0.05em; }
+    footer { border-top: 1px solid var(--rule); padding: 1.5rem clamp(1.5rem,5vw,4rem); display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--ink-muted); }
+    footer a { color: inherit; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-name">Nikki Bautista</a>
+    <a href="../index.html#projects" class="nav-back">← All projects</a>
+  </nav>
+
+  <div class="page">
+    <div class="project-eyebrow">Mechatronics · ENMT211 · 2026</div>
+    <h1>PLC-Based Elevator Control System</h1>
+
+    <div class="meta">
+      <div class="meta-item">
+        <div class="meta-label">Course</div>
+        <div class="meta-value">ENMT211 Principles of Mechatronics</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Team</div>
+        <div class="meta-value">Nikki Bautista &amp; Madeline Sales</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Role</div>
+        <div class="meta-value">Control Logic, Scheduler &amp; Testing</div>
+      </div>
+    </div>
+
+    <div class="project-tags">
+      <span class="project-tag">PLC</span>
+      <span class="project-tag">Ladder Logic</span>
+      <span class="project-tag">Structured Text</span>
+      <span class="project-tag">FSM</span>
+      <span class="project-tag">PI Control</span>
+      <span class="project-tag">Encoder</span>
+    </div>
+
+    <div class="image-placeholder">Add a photo or diagram of the elevator rig here</div>
+
+    <div class="prose">
+      <h2>Overview</h2>
+      <p>
+        Designed and implemented a PLC-based control system for a scale model five-storey elevator rig, programmed in both Ladder Logic and Structured Text on an Omron PLC. The system covers encoder calibration, PI motor control, door interlock logic, a floor scheduling algorithm, and a lighting feedback system — all structured around two finite state machines.
+      </p>
+
+      <h2>How it works</h2>
+      <ul>
+        <li>
+          <strong>Calibration FSM</strong> — on first cycle, the carriage drives down to the lower limit switch (encoding a zero reference), then travels up and records <code>FLOOR_N_LOWER</code> and <code>FLOOR_N_UPPER</code> encoder values for each of the five floors. These are averaged into a <code>FLOOR_N_AVERAGE</code> position. Calibration runs once, giving the controller an accurate absolute position reference before any requests are serviced.
+        </li>
+        <li>
+          <strong>Behaviour FSM</strong> — four states: <code>Calibration_Mode</code>, <code>StoppedState</code>, <code>DoorsMoving</code>, and <code>Moving</code>. State transitions are gated by conditions — the car can't move with doors open, doors won't open unless the car is stationary at a floor.
+        </li>
+        <li>
+          <strong>PI motion control</strong> — the winch motor speed is calculated as <em>Speed = K<sub>p</sub> × error + K<sub>i</sub> ∫ error dt</em>, where error is the absolute difference between the desired and current encoder position. Separate gain logic handles up vs. down movement, and output is clipped to maximum speeds. This gives smooth acceleration into travel speed and controlled deceleration into the target floor.
+        </li>
+        <li>
+          <strong>Scheduler (Structured Text)</strong> — written in ST rather than Ladder to take advantage of arrays and loops. External call buttons feed into <code>Priority_Array[i]</code> (indexed by floor and direction); interior cab buttons feed into <code>Cab_Request[i]</code>. A for loop scans from floor 5 downward to service "down" requests, then another scans from floor 1 upward for "up" requests — replicating the scan-cycle logic real elevators use. A case statement clears requests when <code>CurrentFloor</code> matches <code>TargetFloor</code>.
+        </li>
+        <li>
+          <strong>Lighting</strong> — interior floor buttons illuminate when pressed and extinguish when the floor is reached. External up/down indicator lamps reflect the carriage's current direction of travel, giving waiting passengers directional feedback.
+        </li>
+      </ul>
+
+      <h2>Limitations &amp; honest reflection</h2>
+      <p>
+        The scheduler had a specific failure mode: when two opposing-direction requests arrived simultaneously, the carriage would sometimes service the opposing direction first rather than continuing in its current direction. The bug traced back to Boolean flags not being cleared at the right time in the for loop — the logic was right in principle but the case statements weren't catching every edge case.
+      </p>
+      <p>
+        Hardware inconsistency between physical elevator rigs was the other challenge. We tuned the PI gains on one rig, then had to re-tune on another because the carriage behaviour was different. That made it genuinely hard to tell sometimes whether a bug was in the code or in the hardware — a distinction that matters a lot when you're debugging under time pressure.
+      </p>
+      <p>
+        What I took from this: the gap between "works on your test rig" and "works reliably anywhere" is bigger than it looks, and the only way to close it is to design for variability from the start rather than tune around it at the end.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <span>Nikki Bautista</span>
+    <a href="../index.html">← Back to portfolio</a>
+  </footer>
+</body>
+</html>
