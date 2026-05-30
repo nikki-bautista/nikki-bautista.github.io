@@ -34,6 +34,9 @@
     .prose li { margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.7; }
     .prose strong { color: var(--ink); font-weight: 500; }
     .image-placeholder { background: var(--rule); border-radius: 2px; width: 100%; height: 280px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--ink-muted); margin: 2.5rem 0; letter-spacing: 0.05em; }
+    .project-image { width: 100%; height: auto; border-radius: 2px; display: block; margin: 0; }
+    .project-figure { margin: 2.5rem 0; }
+    .project-caption { margin-top: 0.75rem; font-size: 0.88rem; color: var(--ink-muted); line-height: 1.5; }
     footer { border-top: 1px solid var(--rule); padding: 1.5rem clamp(1.5rem,5vw,4rem); display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--ink-muted); }
     footer a { color: inherit; text-decoration: none; }
   </style>
@@ -72,7 +75,10 @@
       <span class="project-tag">Encoder</span>
     </div>
 
-    <div class="image-placeholder">Add a photo or diagram of the elevator rig here</div>
+    <figure class="project-figure">
+      <img src="IMG_9877.JPG" alt="Elevator rig" class="project-image" />
+      <figcaption class="project-caption">Figure 1: Nikki's project partner Madde Sales with elevator rig.</figcaption>
+    </figure>
 
     <div class="prose">
       <h2>Overview</h2>
@@ -101,13 +107,16 @@
 
       <h2>Limitations &amp; honest reflection</h2>
       <p>
-        The scheduler had a specific failure mode: when two opposing-direction requests arrived simultaneously, the carriage would sometimes service the opposing direction first rather than continuing in its current direction. The bug traced back to Boolean flags not being cleared at the right time in the for loop — the logic was right in principle but the case statements weren't catching every edge case.
+        The scheduler exhibited a failure mode when opposing-direction requests arrived simultaneously. In some cases, the carriage would prioritise the opposing direction rather than continuing in its current travel direction. This was traced back to Boolean flags not consistently clearing at the correct point within the loop logic. While the scheduling approach functioned in principle, certain edge cases were not fully captured by the case statements.
       </p>
       <p>
-        Hardware inconsistency between physical elevator rigs was the other challenge. We tuned the PI gains on one rig, then had to re-tune on another because the carriage behaviour was different. That made it genuinely hard to tell sometimes whether a bug was in the code or in the hardware — a distinction that matters a lot when you're debugging under time pressure.
+        A major challenge was inconsistency between physical elevator rigs. PI gains tuned on one rig did not transfer reliably to another, requiring repeated re-tuning due to differences in carriage behaviour. This introduced uncertainty during debugging, as it was not always immediately clear whether unexpected behaviour originated from the control logic or the hardware itself.
       </p>
       <p>
-        What I took from this: the gap between "works on your test rig" and "works reliably anywhere" is bigger than it looks, and the only way to close it is to design for variability from the start rather than tune around it at the end.
+        One of the strongest parts of this project was the level of trust within our team. Having confidence in each other’s ability to contribute made the process feel genuinely collaborative and allowed us to focus on solving problems rather than constantly managing progress. Working this way made the challenges far more enjoyable to work through.
+      </p>
+      <p>
+        Technically, the project reinforced how different real systems are from idealised ones. A controller that works under one set of conditions does not necessarily behave the same under slightly different hardware conditions. The experience highlighted the importance of designing for variability, testing thoroughly, and recognising that debugging often involves questioning both the code and the physical system simultaneously.
       </p>
     </div>
   </div>
