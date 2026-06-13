@@ -307,7 +307,6 @@
     }
 
     .project-card:first-child { border-top: 1px solid var(--rule); }
-
     .project-card:hover .project-title { color: var(--accent); }
 
     .project-index {
@@ -523,6 +522,283 @@
     .hero-bio     { animation: fadeUp 0.55s 0.18s ease both; }
     .hero-tags    { animation: fadeUp 0.55s 0.28s ease both; }
     .hero-cta     { animation: fadeUp 0.55s 0.36s ease both; }
+
+
+    /* ── BACKSTORY ─────────────────────────────────────────── */
+
+    #backstory {
+      position: relative;
+      background: #0F0C0A;
+      overflow: hidden;
+    }
+
+    /* gradient fade from cream into dark at top */
+    #backstory::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 110px;
+      background: linear-gradient(to bottom, var(--cream) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* gradient fade from dark back to cream at bottom */
+    #backstory::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 110px;
+      background: linear-gradient(to top, var(--cream) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .bs-wrap {
+      padding: 9rem 0 8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    .bs-header {
+      margin-bottom: 5rem;
+    }
+
+    .bs-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #C8563A;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .bs-eyebrow::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: #C8563A;
+      opacity: 0.5;
+      display: block;
+    }
+
+    .bs-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 700;
+      color: #F0EBE4;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .bs-intro {
+      font-size: 0.9375rem;
+      color: #7A6F67;
+      max-width: 540px;
+      line-height: 1.85;
+    }
+
+    /* Timeline */
+    .bs-timeline {
+      position: relative;
+    }
+
+    /* the vertical spine */
+    .bs-timeline::before {
+      content: '';
+      position: absolute;
+      left: 6.5rem;
+      top: 0.6rem;
+      bottom: 2rem;
+      width: 1px;
+      background: #2A2420;
+    }
+
+    /* Each era */
+    .bs-entry {
+      display: grid;
+      grid-template-columns: 6.5rem 2.5rem 1fr;
+      gap: 0;
+      padding-bottom: 4.5rem;
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .bs-entry.bs-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* stagger each entry slightly */
+    .bs-entry:nth-child(2) { transition-delay: 0.1s; }
+    .bs-entry:nth-child(3) { transition-delay: 0.2s; }
+
+    /* Left: year + age */
+    .bs-left {
+      text-align: right;
+      padding-right: 0;
+      padding-top: 0.15rem;
+    }
+
+    .bs-year {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #F0EBE4;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+
+    .bs-age {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #C8563A;
+    }
+
+    /* Centre: dot on the spine */
+    .bs-node {
+      display: flex;
+      justify-content: center;
+      padding-top: 0.35rem;
+    }
+
+    .bs-node::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #C8563A;
+      border: 2px solid #0F0C0A;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* Right: content */
+    .bs-content {
+      padding-left: 1.5rem;
+    }
+
+    .bs-era-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #F0EBE4;
+      margin-bottom: 0.65rem;
+      line-height: 1.25;
+    }
+
+    .bs-text {
+      font-size: 0.9rem;
+      color: #7A6F67;
+      line-height: 1.85;
+      margin-bottom: 0.65rem;
+      max-width: 500px;
+    }
+
+    .bs-subtext {
+      font-size: 0.85rem;
+      color: #5A5048;
+      font-style: italic;
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+      max-width: 480px;
+    }
+
+    .bs-quote {
+      font-size: 0.78rem;
+      color: #5A5048;
+      font-style: italic;
+      border-left: 2px solid #2A2420;
+      padding-left: 1rem;
+      margin: 0.75rem 0 1.25rem;
+      line-height: 1.65;
+      max-width: 460px;
+    }
+
+    /* Image grids */
+    .bs-imgs {
+      display: grid;
+      gap: 0.4rem;
+      margin-top: 1.1rem;
+      grid-template-columns: 1fr;
+    }
+
+    .bs-imgs + .bs-imgs {
+      margin-top: 0.4rem;
+    }
+
+    .bs-imgs.full-width {
+      margin-bottom: 0.4rem;
+      gap: 0;
+    }
+
+    .bs-imgs.cols-1,
+    .bs-imgs.cols-2,
+    .bs-imgs.cols-3 {
+      grid-template-columns: 1fr;
+    }
+
+    .bs-imgs.cols-1 { max-width: none; }
+
+    .bs-img.full-width {
+      grid-column: 1 / -1;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      background: #0F0C0A;
+    }
+
+    .bs-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 2px;
+      border: 1px solid #1E1A17;
+      display: block;
+      transition: opacity 0.3s;
+    }
+
+    .bs-imgs.cols-1 .bs-img { height: 200px; }
+
+    .bs-img:hover { opacity: 0.85; }
+
+    /* Closing line */
+    .bs-closing {
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+      font-style: italic;
+      color: #F0EBE4;
+      text-align: center;
+      border-top: 1px solid #2A2420;
+      padding-top: 3rem;
+      margin-top: 0.5rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;
+    }
+
+    .bs-closing.bs-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive backstory */
+    @media (max-width: 640px) {
+      .bs-timeline::before { left: 4.5rem; }
+      .bs-entry { grid-template-columns: 4.5rem 2rem 1fr; }
+      .bs-content { padding-left: 1rem; }
+      .bs-imgs.cols-3 { grid-template-columns: repeat(2, 1fr); }
+      .bs-year { font-size: 1.1rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -533,6 +809,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#backstory">Origins</a></li>
       <li><a href="#involvement">Involvement</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -544,9 +821,7 @@
       <div class="hero-eyebrow">Mechatronics Engineering · University of Canterbury</div>
       <h1 class="hero-name">Nikki<br><em>Bautista</em></h1>
       <p class="hero-bio">
-        I build things that sit at the intersection of engineering, systems, and people.
-        Curious about where technical rigour meets product thinking —
-        what makes complex things work, and who they work for.
+        Mechatronics student curious about where technical thinking meets people and product.
       </p>
       <div class="hero-tags">
         <span class="tag">Mechatronics</span>
@@ -571,7 +846,7 @@
       <div class="about-grid">
         <div class="about-text">
           <p>
-            I’m a second-year Mechatronics Engineering student at the University of Canterbury, interested in the space where engineering meets people, systems, and real-world problem solving.
+            I'm a second-year Mechatronics Engineering student at the University of Canterbury, interested in the space where engineering meets people, systems, and real-world problem solving.
           </p>
           <p>
             Alongside my degree, I enjoy putting myself in environments where people are building, solving problems, and exploring ideas — from engineering communities to innovation and entrepreneurship spaces.
@@ -640,11 +915,11 @@
           <span class="project-arrow">↗</span>
         </a>
 
-        <a href="projects/startup-weekend.html" class="project-card">
+        <div class="project-card">
           <span class="project-index">03</span>
           <div>
             <div class="project-title">Startup &amp; Venture Ecosystem Events</div>
-            <p class="project-desc">Regular at startup weekends, Disrupt events, and entrepreneurship panels — building exposure to how ventures are started, what fails early, and what gets traction.</p>
+            <p class="project-desc">Regular at InHive, Ice House Ventures, NZ Young Entrepreneurs, and founder panels — building exposure to how ventures are started, what fails early, and what gets traction.</p>
             <div class="project-tags">
               <span class="project-tag">Entrepreneurship</span>
               <span class="project-tag">Product</span>
@@ -652,8 +927,7 @@
               <span class="project-tag">Pitching</span>
             </div>
           </div>
-          <span class="project-arrow">↗</span>
-        </a>
+        </div>
 
       </div>
     </div>
@@ -680,15 +954,131 @@
 
         <div class="exp-item">
           <div class="exp-meta">
-            <div class="exp-role">Cook's/Cafe Assistant</div>
+            <div class="exp-role">Cook's / Cafe Assistant</div>
             <span class="exp-date">Since 2021</span>
           </div>
           <div class="exp-org">Anthony Wilding Retirement Village</div>
           <p class="exp-desc">
-            Working in an aged care environment since age 15, supporting day-to-day operations while gaining an understanding of how teams, systems, and care environments function. More recently, I’ve become interested in improving small workflow inefficiencies using existing digital tools.
+            Working in an aged care environment since age 15, supporting day-to-day operations while gaining an understanding of how teams, systems, and care environments function. More recently, I've become interested in improving small workflow inefficiencies using existing digital tools.
           </p>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- BACKSTORY -->
+  <section id="backstory">
+    <div class="bs-wrap">
+      <div class="container">
+
+        <div class="bs-header">
+          <div class="bs-eyebrow">Before the degree</div>
+          <h2 class="bs-title">The backstory.</h2>
+          <p class="bs-intro">Between 11 and 16, I built and ran a full creative and commercial operation inside Roblox — 3D environments, clothing design, multi-client advertising, commission management. I didn't know what any of it was called. I let my curiosity lead me.</p>
+        </div>
+
+        <div class="bs-timeline">
+
+          <!-- AGE 11 -->
+          <div class="bs-entry">
+            <div class="bs-left">
+              <div class="bs-year">2018</div>
+              <div class="bs-age">Age 11</div>
+            </div>
+            <div class="bs-node"></div>
+            <div class="bs-content">
+              <h3 class="bs-era-title">First build.</h3>
+              <p class="bs-text">Started building 3D environments in Roblox Studio. Coded very basic Lua scripts to make things actually work, learned to make the most out of what already existed.</p>
+              <div class="bs-imgs cols-1">
+                <!-- Save as: assets/backstory/age11-blue-room.jpg -->
+                <img class="bs-img" src="assets/backstory/age11-blue-room.jpg" alt="First 3D build — blue room interior, age 11" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <!-- AGE 13 -->
+          <div class="bs-entry">
+            <div class="bs-left">
+              <div class="bs-year">2020</div>
+              <div class="bs-age">Age 13</div>
+            </div>
+            <div class="bs-node"></div>
+            <div class="bs-content">
+              <h3 class="bs-era-title">Environments. Design. Learning.</h3>
+              <p class="bs-text">The outcomes of lockdown. Continued to learn, iterate, and test. Built a Paris-themed shopping district with multiple storefronts and interior environments in Roblox Studio. Started designing 2D clothing in Paint.NET — first attempts, figuring out layers, shading, templates. Also started teaching myself Blender for small personal projects: basic models, simple GFX, just exploring what the tool could do.</p>
+              <p class="bs-subtext">The clothing work continued through age 14. The improvement was visible.</p>
+              <div class="bs-imgs cols-3">
+                <!-- Save as: assets/backstory/age13-paris-studio.jpg -->
+                <img class="bs-img" src="assets/backstory/age13-paris-studio.jpg" alt="Paris shopping district in Roblox Studio" loading="lazy" />
+                <!-- Save as: assets/backstory/age13-blender.jpg -->
+                <img class="bs-img" src="assets/backstory/age13-blender.jpg" alt="Early Blender work, age 13" loading="lazy" />
+                <!-- Save as: assets/backstory/age13-paintnet.jpg -->
+                <img class="bs-img" src="assets/backstory/age13-paintnet.jpg" alt="Paint.NET clothing design with layer panel" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <!-- AGE 15 -->
+          <div class="bs-entry">
+            <div class="bs-left">
+              <div class="bs-year">2022</div>
+              <div class="bs-age">Age 15</div>
+            </div>
+            <div class="bs-node"></div>
+            <div class="bs-content">
+              <h3 class="bs-era-title">Hired. Commissioned. Documented.</h3>
+              <p class="bs-text">The clothing work had levelled up enough to get hired. GLXW brought me on as a weekly designer — fixed rate per piece, paid by output. I was also taking ad commissions on the side: designing advertising banners for other groups, each with a different aesthetic and brief.</p>
+              <p class="bs-text">Built a commission queue system so clients could see their position, status, and updates all in one place. Not because the process was broken — I just thought that was the right way to treat people waiting on work.</p>
+              <p class="bs-text">I took advantage of my high school's Adobe suite and documented the whole design process on YouTube. I learned how to use Photoshop, Illustrator, and Premiere Pro. I posted speed recordings of clothing from start to finish and amassed thousands of views. Comments still come in, most recent was three months ago.</p>
+              <div class="bs-quote">"your work is thoroughly done and you truly zoom in on all details. Just from looking at your work is majestic" — @naepoohh, 14 likes<br><br>"also why'd you just ghost us like that where are you your work is so good" — @Rxselya, 2 years after I left</div>
+              <p class="bs-text" style="margin-top:1rem;">Running it all simultaneously with school and two part-time jobs at one point. Continued to build on Roblox Studio from time to time.</p>
+              <div class="bs-imgs cols-2">
+                <!-- Save as: assets/backstory/age15-subway-studio.jpg -->
+                <img class="bs-img" src="assets/backstory/age15-subway-studio.jpg" alt="Subway interior in Roblox Studio editor" loading="lazy" />
+                <!-- Save as: assets/backstory/age15-krita.jpg -->
+                <img class="bs-img" src="assets/backstory/age15-krita.jpg" alt="Krita clothing design with layer panel, age 15" loading="lazy" />
+              </div>
+              <div class="bs-imgs cols-2">
+                <!-- Save as: assets/backstory/age15-forest-studio.jpg -->
+                <img class="bs-img" src="assets/backstory/age15-forest-studio.jpg" alt="Forest environment in Roblox Studio, age 15" loading="lazy" />
+              </div>
+              <div class="bs-imgs full-width">
+                <!-- Save as: assets/backstory/age15-ads.jpg -->
+                <img class="bs-img full-width" src="assets/backstory/age15-ads.jpg" alt="Ad banners for client clothing groups" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.bs-timeline -->
+
+        <p class="bs-closing">Before I knew what any of this was called, I was doing it.</p>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- FUTURE -->
+  <section id="future">
+    <div class="container">
+      <div class="section-label">Present</div>
+      <h2>Back to the present.</h2>
+      <div class="about-text">
+      
+        <p>Somewhere along the way, I stopped thinking about all of this as “experience.”</p>
+        <p>High school happened. Engineering happened. Life got busier. What used to take up most of my free time slowly became something I rarely thought about.</p>
+        <p>But looking back, I think those years shaped me far more than I realised.</p>
+        <p>Without really knowing it, I had spent years learning how to build things from scratch, figure out unfamiliar tools, work with constraints, communicate with people, and solve problems independently. I learned how to iterate, take feedback, manage expectations, and care deeply about details — whether that meant improving a clothing design, building a more believable environment, or making sure someone waiting on commissioned work felt looked after.</p>
+        <p>The funny thing is: those same patterns still show up everywhere in my life.</p>
+        <p>Today, I study Mechatronics Engineering at the University of Canterbury, where I’m naturally drawn to systems thinking, problem solving, and understanding how things work. Outside the degree, I keep finding myself pulled toward spaces where technical ideas meet people — engineering communities, startups, innovation events, student clubs, and collaborative projects.</p>
+        <p>Looking back, I think that early creative world shaped how I approach problems today. I’m naturally curious. I like figuring things out from first principles. I enjoy bringing structure to messy systems and thinking about how ideas actually work in practice. Just as much, I care about communication — making things understandable, useful, and meaningful to the people on the other side.</p>
+        <p>At the time, I thought I was just making things online.</p>
+        <p>Now, I think I was accidentally learning how I like to think.</p>
+        
       </div>
     </div>
   </section>
@@ -738,6 +1128,29 @@
     <span>Nikki Bautista</span>
     <span>Christchurch, New Zealand · 2026</span>
   </footer>
+
+  <script>
+    // Scroll-reveal for backstory entries and closing line
+    (function () {
+      var targets = document.querySelectorAll('.bs-entry, .bs-closing');
+      if (!targets.length || !('IntersectionObserver' in window)) {
+        // fallback: just show everything
+        targets.forEach(function (el) { el.classList.add('bs-visible'); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('bs-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      targets.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
 
 </body>
 </html>
