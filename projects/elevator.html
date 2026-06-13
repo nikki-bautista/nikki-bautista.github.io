@@ -36,6 +36,13 @@
     .image-placeholder { background: var(--rule); border-radius: 2px; width: 100%; height: 280px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--ink-muted); margin: 2.5rem 0; letter-spacing: 0.05em; }
     .project-image { width: 100%; height: auto; border-radius: 2px; display: block; margin: 0; }
     .project-figure { margin: 2.5rem 0; }
+    .project-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .project-gallery img { width: 100%; height: auto; display: block; }
     .project-caption { margin-top: 0.75rem; font-size: 0.88rem; color: var(--ink-muted); line-height: 1.5; }
     footer { border-top: 1px solid var(--rule); padding: 1.5rem clamp(1.5rem,5vw,4rem); display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--ink-muted); }
     footer a { color: inherit; text-decoration: none; }
@@ -115,6 +122,16 @@
       <p>
         One of the strongest parts of this project was the level of trust within our team. Having confidence in each other’s ability to contribute made the process feel genuinely collaborative and allowed us to focus on solving problems rather than constantly managing progress. Working this way made the challenges far more enjoyable to work through.
       </p>
+      <div class="project-gallery">
+        <figure class="project-figure">
+          <img src="elevator-screenshot-1.png" alt="Elevator PLC interface screenshot one" class="project-image" />
+          <figcaption class="project-caption">Figure 2: PLC ladder logic and wiring display.</figcaption>
+        </figure>
+        <figure class="project-figure">
+          <img src="elevator-screenshot-2.png" alt="Elevator PLC interface screenshot two" class="project-image" />
+          <figcaption class="project-caption">Figure 3: Control interface and runtime feedback.</figcaption>
+        </figure>
+      </div>
       <p>
         Technically, the project reinforced how different real systems are from idealised ones. A controller that works under one set of conditions does not necessarily behave the same under slightly different hardware conditions. The experience highlighted the importance of designing for variability, testing thoroughly, and recognising that debugging often involves questioning both the code and the physical system simultaneously.
       </p>
