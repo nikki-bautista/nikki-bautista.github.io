@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motor Controller PCB & Drive — Nikki Bautista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/archive.css" />
+</head>
+<body>
+
+  <nav class="nav" aria-label="Primary">
+    <ul class="nav-links">
+      <li><a href="../index.html">Index</a></li>
+      <li><a href="../index.html#desk" class="current">Projects</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#origins">Origins</a></li>
+      <li><a href="../index.html#involvement">Involvement</a></li>
+    </ul>
+    <a href="../index.html" class="seal" aria-label="Nikki Bautista — home">nb</a>
+    <ul class="nav-links right">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Index
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke-width="1.3" aria-hidden="true"><line x1="2" y1="5" x2="14" y2="5"></line><line x1="2" y1="11" x2="14" y2="11"></line></svg>
+    </button>
+  </nav>
+  <div class="nav-menu" id="menu">
+    <a href="../index.html#desk">Projects</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#origins">Origins</a>
+    <a href="../index.html#involvement">Involvement</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#contact">Contact</a>
+    <div class="crumb">Archive / Projects / 03</div>
+  </div>
+
+  <div class="corner tl">REC 03</div>
+  <div class="corner tr">PCB<br>MECH<br>A4<br>p.3</div>
+
+  <main class="record wrap">
+    <div class="record-top">
+      <div class="crumb"><a href="../index.html">Archive</a> / <a href="../index.html#desk">Projects</a> / 03 / Motor controller</div>
+      <a href="../index.html#desk" class="crumb">← All records</a>
+    </div>
+
+    <div class="record-title">
+      <h1 class="display">Motor Controller PCB <em>&amp; Drive</em></h1>
+      <div class="record-when">Mechatronics · [Course / Context]<br>2026</div>
+    </div>
+
+    <div class="meta-strip">
+      <div><div class="k">Tools</div><div class="v">KiCad · SolidWorks</div></div>
+      <div><div class="k">Board</div><div class="v">2-layer · ATmega328P [confirm]</div></div>
+      <div><div class="k">Role</div><div class="v">Schematic, Layout &amp; CAD</div></div>
+      <div><div class="k">Status</div><div class="v"><span class="status active">Active</span></div></div>
+    </div>
+
+    <div class="cols">
+      <div>
+        <div class="k">Overview</div>
+        <p>A custom microcontroller board built around a 28-pin ATmega328P with a 16 MHz crystal, driving two DC motors through discrete MOSFET stages (Q1, Q2) with flyback protection. Five 3-pin sensor headers along the top edge, an ISP header for programming, a reset switch, and test points on the key nets. [Confirm: what it drives, and the context — course, competition, personal.]</p>
+      </div>
+      <div>
+        <div class="k">Design decisions</div>
+        <ol>
+          <li><span class="n">01</span><span><b>Discrete low-side MOSFET drive</b> — gate resistor + pull-down per channel, flyback diode across each motor. [why over an H-bridge IC]</span></li>
+          <li><span class="n">02</span><span><b>Bulk capacitor at the motor supply</b> — C5 close to the motor outputs to absorb switching transients away from the MCU.</span></li>
+          <li><span class="n">03</span><span><b>AVCC routing and decoupling</b> — separate AVCC pour, decoupling at the MCU pins, test points on every net you'd need a probe on.</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">PCB design</span><span class="tag">KiCad</span><span class="tag">Motor drive</span><span class="tag">SolidWorks</span>
+    </div>
+
+    <!-- The prints. Each dashed slot is replaced by its <img> once the file is in projects/. -->
+    <div class="prints">
+      <figure class="print w7 r1">
+        <div class="slot board"><div class="lbl">[ KICAD LAYOUT — pcb-layout.png ]<small>crop to the board outline</small></div></div>
+        <!-- <img src="pcb-layout.png" alt="KiCad board layout, front copper" width="1292" height="780" /> -->
+        <figcaption class="cap"><span>FIG. 1 — Board layout · front copper, KiCad</span><span>1 : 1</span></figcaption>
+      </figure>
+      <figure class="print w5 r2">
+        <div class="slot render"><div class="lbl">[ 3D RENDER — pcb-render.png ]<small>crop tight to the board</small></div></div>
+        <!-- <img src="pcb-render.png" alt="Assembled board, KiCad 3D viewer" /> -->
+        <figcaption class="cap"><span>FIG. 2 — Assembled board, KiCad 3D viewer</span><span>ISO</span></figcaption>
+      </figure>
+      <figure class="print w7 r3 white" id="drawing">
+        <div class="slot sheet"><div class="lbl">[ ASSEMBLY DRAWING — motion-transmission.png ]<small>crop to the drawing frame</small></div></div>
+        <!-- <img src="motion-transmission.png" alt="Motion transmission assembly drawing, SolidWorks" /> -->
+        <figcaption class="cap"><span>FIG. 3 — Motion transmission assembly · 10T/40T spur gears, MR63ZZ bearings · SolidWorks</span><span>A3</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="prose">
+      <h2>What I learned</h2>
+      <p class="lead">[What was tricky, what you'd change on a rev 2, and what the project taught you — the honest note, like the elevator page.]</p>
+    </div>
+
+    <div class="pn">
+      <a href="elevator.html"><span class="k">← Previous · 02</span><span class="t">PLC Elevator Control System</span></a>
+      <a href="bouzie.html" class="next"><span class="k">Next · 04 →</span><span class="t">Bouzie — Co-Founder, Operations &amp; Partnerships</span></a>
+    </div>
+    <div class="footer"><span>NIKKI BAUTISTA · CHRISTCHURCH, NZ</span><span>ARCHIVE © 2026</span></div>
+  </main>
+
+  <script src="../assets/desk.js"></script>
+</body>
+</html>
